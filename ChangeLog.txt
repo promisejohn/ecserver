@@ -1,0 +1,10 @@
+- 0.0.1 - SNAPSHOT
+
+gradle script
+source packages
+sprint boot
+h2 database
+integrate test
+Customer: domain, repository, service, controller, api, view(thymeleaf)
+log standard: slf4j, logback
+profile: prod, dev
