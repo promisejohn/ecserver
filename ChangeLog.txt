@@ -7,12 +7,10 @@ h2 database
 integrate test
 Customer: domain, repository, service, controller, view(thymeleaf)
 log standard: slf4j, logback
-
-todo:
-write unittest for customer service crud
-optimize with css, js, image
-rest api design
 profile: prod, dev
 Thymeleaf i18n
-product and order
+write unittest for customer service crud
 
+optimize with css, js, image
+rest api design
+product and order
