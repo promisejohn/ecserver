@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:with="lang=${#locale.language}"
+      th:lang="${lang}">
 
-<head lang="en">
+<head>
 	<title>Customer详情</title>
 </head>
 
 <body>
 
 <div class="container">
-	<h2>Customer Detail</h2>
+	<h2 th:text="#{customer.detail}">customer detail</h2>
 	<div>
 		<form class="form-horizontal">
 			<div class="form-group">
