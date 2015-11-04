@@ -15,6 +15,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,8 +33,7 @@ public class CustomerServiceTest {
 	public void setUp() {
 		customerRepository.deleteAll();
 		for (int i = 0; i < 3; i++) {
-			Customer c = new Customer();
-			c.setName("test" + i);
+			Customer c = new Customer("test" + i, "test" + i + "@anyio.org", "test" + i + "mobile");
 			customerService.saveCustomer(c);
 		}
 	}
@@ -47,11 +48,16 @@ public class CustomerServiceTest {
 		}
 		assertEquals(3, s);
 	}
+	
+	@Test
+	public void testListAllCustomerPage() {
+		Page<Customer> page = customerService.listCustomers(new PageRequest(100, 10));
+		assertEquals(0, page.getNumber());
+	}
 
 	@Test
 	public void testGetCustomerById() {
-		Customer c = new Customer();
-		c.setName("testGetCustomerById");
+		Customer c = new Customer("testGetCustomerById", "testGetCustomerById@anyio.org", "testGetCustomerByIdMobile");
 		customerService.saveCustomer(c);
 		Customer cc = customerService.getCustomerById(c.getId());
 		assertEquals(c.getId(), cc.getId());
@@ -59,8 +65,7 @@ public class CustomerServiceTest {
 
 	@Test
 	public void testSaveCustomer() {
-		Customer c = new Customer();
-		c.setName("testSaveCustomer");
+		Customer c = new Customer("testSaveCustomer","testSaveCustomer@anyio.org","testSaveCustomerMobile");
 		assertNull(c.getId());
 		customerService.saveCustomer(c);
 		assertNotNull(c.getId());

@@ -15,13 +15,24 @@ public class Customer {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
 	private String email;
 	private String mobile;
 	@Enumerated(EnumType.ORDINAL)
 	private Status status;
+
+	public Customer() {
+		this.status = Status.NORMAL;
+	}
+
+	public Customer(String name, String email, String mobile) {
+		this.name = name;
+		this.email = email;
+		this.mobile = mobile;
+		this.status = Status.NORMAL;
+	}
 
 	public Long getId() {
 		return id;
@@ -67,7 +78,5 @@ public class Customer {
 	public String toString() {
 		return "Customer [name=" + name + ", mobile=" + mobile + "]";
 	}
-	
-	
 
 }

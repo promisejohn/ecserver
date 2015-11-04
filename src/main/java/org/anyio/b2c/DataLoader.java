@@ -19,20 +19,12 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		Customer c1 = new Customer();
-		c1.setName("autogen_customer1");
-		c1.setStatus(Customer.Status.NORMAL);
-		c1.setMobile("1111111111");
-		customerRepository.save(c1);
-		log.info("Saved autogen_customer with id: " + c1.getId());
 
-		Customer c2 = new Customer();
-		c2.setName("autogen_customer2");
-		c2.setStatus(Customer.Status.NORMAL);
-		c2.setMobile("2222222222");
-		customerRepository.save(c2);
-		customerRepository.save(c2);
-		log.info("Saved autogen_customer with id: " + c2.getId());
+		for (int i = 0; i < 20; i++) {
+			Customer c = new Customer("测试用户" + i, "user" + i + "@mail.anyio.org", "mobile" + i);
+			customerRepository.save(c);
+			log.info("Saved " + c.getName() + " with id: " + c.getId());
+		}
 	}
 
 }

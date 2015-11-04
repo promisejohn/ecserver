@@ -1,6 +1,8 @@
 package org.anyio.b2c.service;
 
 import org.anyio.b2c.domain.Customer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface CustomerService {
 
@@ -11,4 +13,6 @@ public interface CustomerService {
 	Customer saveCustomer(Customer customer);
 
 	void deleteCustomer(Long id);
+	
+	Page<Customer> listCustomers(Pageable pageable);
 }
