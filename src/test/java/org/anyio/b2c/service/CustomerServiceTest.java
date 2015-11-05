@@ -1,6 +1,8 @@
 package org.anyio.b2c.service;
 
 import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -48,11 +50,11 @@ public class CustomerServiceTest {
 		}
 		assertEquals(3, s);
 	}
-	
+
 	@Test
 	public void testListAllCustomerPage() {
 		Page<Customer> page = customerService.listCustomers(new PageRequest(100, 10));
-		assertEquals(0, page.getNumber());
+		assertEquals(1, page.getTotalPages());
 	}
 
 	@Test
@@ -65,7 +67,7 @@ public class CustomerServiceTest {
 
 	@Test
 	public void testSaveCustomer() {
-		Customer c = new Customer("testSaveCustomer","testSaveCustomer@anyio.org","testSaveCustomerMobile");
+		Customer c = new Customer("testSaveCustomer", "testSaveCustomer@anyio.org", "testSaveCustomerMobile");
 		assertNull(c.getId());
 		customerService.saveCustomer(c);
 		assertNotNull(c.getId());

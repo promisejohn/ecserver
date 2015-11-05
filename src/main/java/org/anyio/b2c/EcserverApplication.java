@@ -17,6 +17,6 @@ public class EcserverApplication {
 		ApplicationContext ctx = SpringApplication.run(EcserverApplication.class, args);
 		String[] beanNames = ctx.getBeanDefinitionNames();
 		Arrays.sort(beanNames);
-		log.debug("Inspect the beans loaded by Spring Boot: " + String.join(",", beanNames));
+		log.debug("Inspect the beans loaded by Spring Boot: " + String.join("\n", beanNames));
 	}
 }

@@ -14,6 +14,7 @@ optimize with css, icons
 add search methods with @Query
 pagination like jd
 add mysql for prod profile
+complex query by Querydsl
 
 rest api design
 product and order
