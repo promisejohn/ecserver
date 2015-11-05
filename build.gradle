@@ -44,6 +44,7 @@ dependencies {
 		compile "com.mysema.querydsl:querydsl-core:${querydslVersion}"
 		compile "com.mysema.querydsl:querydsl-jpa:${querydslVersion}"
 		compile "com.mysema.querydsl:querydsl-apt:${querydslVersion}"
+		compile "org.apache.commons:commons-collections4:4.0"
 
 		testCompile('org.springframework.boot:spring-boot-starter-test') 
 		testCompile("org.hamcrest:hamcrest-all")

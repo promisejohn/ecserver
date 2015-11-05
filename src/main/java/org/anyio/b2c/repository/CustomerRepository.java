@@ -8,9 +8,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Long>, QueryDslPredicateExecutor<Customer> {
 
 	List<Customer> findByName(String name);
 
@@ -19,12 +20,13 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	@Query("SELECT c FROM Customer c WHERE " + "LOWER(c.name) LIKE LOWER(CONCAT('%',:searchTerm, '%')) OR "
 			+ "LOWER(c.email) LIKE LOWER(CONCAT('%',:searchTerm, '%'))")
 	List<Customer> findBySearchTerm(@Param("searchTerm") String searchTerm, Pageable pageRequest);
-	
+
 	@Query("SELECT c FROM Customer c WHERE " + "LOWER(c.name) LIKE LOWER(CONCAT('%',:searchTerm, '%')) OR "
 			+ "LOWER(c.email) LIKE LOWER(CONCAT('%',:searchTerm, '%'))")
 	Page<Customer> findBySearchTermPage(@Param("searchTerm") String searchTerm, Pageable pageRequest);
-	
+
 	@Query("SELECT c FROM Customer c WHERE " + "LOWER(c.name) LIKE LOWER(CONCAT('%',:searchTerm, '%')) OR "
 			+ "LOWER(c.email) LIKE LOWER(CONCAT('%',:searchTerm, '%'))")
 	Slice<Customer> findBySearchTermSlice(@Param("searchTerm") String searchTerm, Pageable pageRequest);
+
 }

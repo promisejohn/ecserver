@@ -4,14 +4,12 @@ import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import org.anyio.b2c.EcserverApplication;
-import org.anyio.b2c.config.PersistConfig;
 import org.anyio.b2c.domain.Customer;
 import org.anyio.b2c.repository.CustomerRepository;
+import org.apache.commons.collections4.IteratorUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,13 +40,7 @@ public class CustomerServiceTest {
 
 	@Test
 	public void testListAllCustomer() {
-		Iterator<Customer> iter = customerService.listAllCustomer().iterator();
-		int s = 0;
-		while (iter.hasNext()) {
-			iter.next();
-			++s;
-		}
-		assertEquals(3, s);
+		assertThat(IteratorUtils.toList(customerService.listAllCustomer().iterator()).size(), equalTo(3));
 	}
 
 	@Test
@@ -80,5 +72,13 @@ public class CustomerServiceTest {
 		customerService.deleteCustomer(c.getId());
 		c = customerService.getCustomerById(c.getId());
 		assertNull(c);
+	}
+
+	@Test
+	public void testSearchCustomers() {
+		Page<Customer> page = customerService.searchCustomers("test1", new PageRequest(1, 1));
+		assertThat(page.getTotalElements(), equalTo(1L));
+		page = customerService.searchCustomers("test", new PageRequest(1, 1));
+		assertThat(page.getTotalElements(), equalTo(3L));
 	}
 }

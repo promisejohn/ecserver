@@ -13,6 +13,8 @@ public interface CustomerService {
 	Customer saveCustomer(Customer customer);
 
 	void deleteCustomer(Long id);
-	
+
 	Page<Customer> listCustomers(Pageable pageable);
+
+	Page<Customer> searchCustomers(String searchTerm, Pageable pageable);
 }
