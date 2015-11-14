@@ -1,0 +1,6 @@
+This is a spring boot application.
+
+Application version: ${application.version}
+SpringBoot version: ${spring-boot.version}, ${spring-boot.formatted-version}
+Random secret: ${application.secret}, ${application.random.bignumber}
+

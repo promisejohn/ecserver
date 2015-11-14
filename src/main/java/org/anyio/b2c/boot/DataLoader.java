@@ -1,4 +1,4 @@
-package org.anyio.b2c;
+package org.anyio.b2c.boot;
 
 import org.anyio.b2c.domain.Customer;
 import org.anyio.b2c.repository.CustomerRepository;
