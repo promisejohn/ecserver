@@ -1,6 +1,6 @@
 package org.anyio.b2c.controller.rest;
 
-import org.anyio.b2c.domain.Customer;
+import org.anyio.b2c.domain.jpa.Customer;
 import org.anyio.b2c.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

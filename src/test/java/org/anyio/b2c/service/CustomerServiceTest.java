@@ -7,8 +7,8 @@ import static org.hamcrest.Matchers.*;
 import java.util.Iterator;
 
 import org.anyio.b2c.EcserverApplication;
-import org.anyio.b2c.domain.Customer;
-import org.anyio.b2c.repository.CustomerRepository;
+import org.anyio.b2c.domain.jpa.Customer;
+import org.anyio.b2c.repository.jpa.CustomerRepository;
 import org.apache.commons.collections4.IteratorUtils;
 import org.junit.Before;
 import org.junit.Test;

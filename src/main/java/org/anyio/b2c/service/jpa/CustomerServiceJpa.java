@@ -1,8 +1,8 @@
 package org.anyio.b2c.service.jpa;
 
-import org.anyio.b2c.domain.Customer;
-import org.anyio.b2c.domain.QCustomer;
-import org.anyio.b2c.repository.CustomerRepository;
+import org.anyio.b2c.domain.jpa.QCustomer;
+import org.anyio.b2c.repository.jpa.CustomerRepository;
+import org.anyio.b2c.domain.jpa.Customer;
 import org.anyio.b2c.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,9 +21,11 @@ import com.mysema.query.types.Predicate;
 /**
  * CustomerService with SpringDataJPA implementation.
  * 
- * Use simplest cache method. More on:
+ * More on:
  * http://docs.spring.io/spring/docs/current/spring-framework-reference/html/
  * cache.html
+ * 
+ * Complex situation consider using AOP.
  * 
  * @author promise
  *

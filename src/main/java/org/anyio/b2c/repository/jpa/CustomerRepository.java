@@ -1,8 +1,8 @@
-package org.anyio.b2c.repository;
+package org.anyio.b2c.repository.jpa;
 
 import java.util.List;
 
-import org.anyio.b2c.domain.Customer;
+import org.anyio.b2c.domain.jpa.Customer;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;

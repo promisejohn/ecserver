@@ -1,4 +1,4 @@
-package org.anyio.b2c.domain;
+package org.anyio.b2c.domain.jpa;
 
 import java.io.Serializable;
 

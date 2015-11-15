@@ -2,7 +2,7 @@ package org.anyio.b2c.boot;
 
 import javax.annotation.Resource;
 
-import org.anyio.b2c.domain.Customer;
+import org.anyio.b2c.domain.jpa.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

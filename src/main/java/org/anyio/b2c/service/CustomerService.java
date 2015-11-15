@@ -1,6 +1,6 @@
 package org.anyio.b2c.service;
 
-import org.anyio.b2c.domain.Customer;
+import org.anyio.b2c.domain.jpa.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

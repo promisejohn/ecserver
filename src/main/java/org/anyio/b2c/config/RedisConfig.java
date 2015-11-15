@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.anyio.b2c.boot.BootMessageListener;
 import org.anyio.b2c.boot.BootMessageListenerPojo;
-import org.anyio.b2c.domain.Customer;
+import org.anyio.b2c.domain.jpa.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

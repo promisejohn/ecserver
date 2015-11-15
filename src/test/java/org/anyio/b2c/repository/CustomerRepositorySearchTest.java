@@ -1,8 +1,9 @@
 package org.anyio.b2c.repository;
 
 import org.anyio.b2c.config.JpaConfig;
-import org.anyio.b2c.domain.Customer;
-import org.anyio.b2c.domain.QCustomer;
+import org.anyio.b2c.domain.jpa.QCustomer;
+import org.anyio.b2c.repository.jpa.CustomerRepository;
+import org.anyio.b2c.domain.jpa.Customer;
 import org.apache.commons.collections4.IteratorUtils;
 import org.junit.Before;
 import org.junit.Test;

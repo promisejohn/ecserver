@@ -6,7 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.anyio.b2c.config.JpaConfig;
-import org.anyio.b2c.domain.Customer;
+import org.anyio.b2c.domain.jpa.Customer;
+import org.anyio.b2c.repository.jpa.CustomerRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
