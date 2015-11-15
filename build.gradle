@@ -37,8 +37,9 @@ dependencyManagement {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile 'org.springframework.boot:spring-boot-starter-redis'
-	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+		compile 'org.springframework.boot:spring-boot-starter-redis'
+		compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+		compile("org.springframework.boot:spring-boot-starter-data-rest")
 		compile('org.springframework.boot:spring-boot-starter-web')
 		compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 		compile('com.h2database:h2')
@@ -74,11 +75,11 @@ sourceSets {
 task generateQueryDSL(type: JavaCompile, group: 'build', description: 'Generates the QueryDSL query types') {
 	source = sourceSets.main.java;
 	classpath = configurations.compile
-	options.compilerArgs = [
+		options.compilerArgs = [
 		"-proc:only",
 		"-processor", "com.mysema.query.apt.jpa.JPAAnnotationProcessor"
 			]
-	destinationDir = sourceSets.generated.java.srcDirs.iterator().next();
+			destinationDir = sourceSets.generated.java.srcDirs.iterator().next();
 }
 
 compileJava {

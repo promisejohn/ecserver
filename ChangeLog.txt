@@ -20,7 +20,8 @@ complex query by Querydsl
 redis cache support
 redis pub/sub support
 simple mongodb support
+rest api support with @RepositoryRestResource, work on mongo and jpa
 
-rest api design
 product and order
+exception design and handle
 spring security support
