@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Iterator;
 import java.util.List;
 
-import org.anyio.b2c.config.PersistConfig;
+import org.anyio.b2c.config.JpaConfig;
 import org.anyio.b2c.domain.Customer;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import org.springframework.data.domain.Slice;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { PersistConfig.class })
+@SpringApplicationConfiguration(classes = { JpaConfig.class })
 public class CustomerRepositoryTest {
 
 	@Autowired

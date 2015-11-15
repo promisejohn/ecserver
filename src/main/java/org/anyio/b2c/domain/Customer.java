@@ -1,5 +1,7 @@
 package org.anyio.b2c.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -8,7 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Customer {
+public class Customer implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5856089197078264116L;
 
 	public enum Status {
 		UNDER_REG, NORMAL, BLACKLISTED

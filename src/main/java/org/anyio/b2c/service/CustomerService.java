@@ -17,4 +17,6 @@ public interface CustomerService {
 	Page<Customer> listCustomers(Pageable pageable);
 
 	Page<Customer> searchCustomers(String searchTerm, Pageable pageable);
+
+	Iterable<Customer> searchCustomers(String searchTerm);
 }

@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,14 +26,14 @@ public class CustomerController {
 	public String listCustomers(Model model) {
 		model.addAttribute("customers", customerService.listAllCustomer());
 		log.debug("show customers all controller.");
-		return "customers";
+		return "all";
 	}
 
 	@RequestMapping(value = "customers", method = RequestMethod.GET)
 	public String showCustomers(Model model, Pageable pageable) {
-		
+
 		// todo: add page number validation
-		
+
 		Page<Customer> page = customerService.listCustomers(pageable);
 		// prevent page number exceeds totalPages.
 		int current_index = Math.min(page.getNumber(), page.getTotalPages() - 1);
@@ -83,5 +84,11 @@ public class CustomerController {
 	public String delete(@PathVariable Long id) {
 		customerService.deleteCustomer(id);
 		return "redirect:/customers";
+	}
+
+	@RequestMapping(value = "customersall", method = RequestMethod.POST)
+	public String query(@ModelAttribute("searchTerm") String searchTerm, Model model) {
+		model.addAttribute("customers", customerService.searchCustomers(searchTerm));
+		return "all";
 	}
 }

@@ -1,6 +1,6 @@
 package org.anyio.b2c.repository;
 
-import org.anyio.b2c.config.PersistConfig;
+import org.anyio.b2c.config.JpaConfig;
 import org.anyio.b2c.domain.Customer;
 import org.anyio.b2c.domain.QCustomer;
 import org.apache.commons.collections4.IteratorUtils;
@@ -20,7 +20,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = { PersistConfig.class })
+@SpringApplicationConfiguration(classes = { JpaConfig.class })
 public class CustomerRepositorySearchTest {
 
 	@Autowired

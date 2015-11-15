@@ -3,6 +3,8 @@ package org.anyio.b2c.repository;
 import java.util.List;
 
 import org.anyio.b2c.domain.Customer;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -13,6 +15,13 @@ import org.springframework.data.repository.query.Param;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long>, QueryDslPredicateExecutor<Customer> {
 
+//	@Cacheable(value = "customercache", keyGenerator = "keyGenerator")
+	Customer getOne(Long id);
+
+//	@CacheEvict(value = "customercache", keyGenerator = "keyGenerator")
+	Customer save(Customer c);
+
+//	@Cacheable(value = "customercache", keyGenerator = "keyGenerator")
 	List<Customer> findByName(String name);
 
 	List<Customer> findByNameContainsOrEmailContainsAllIgnoreCase(String name, String email, Pageable pageRequest);

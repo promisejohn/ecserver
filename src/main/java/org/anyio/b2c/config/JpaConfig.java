@@ -2,6 +2,7 @@ package org.anyio.b2c.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -11,6 +12,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan(basePackages={"org.anyio.b2c.domain"})
 @EnableJpaRepositories(basePackages = {"org.anyio.b2c.repository"})
 @EnableTransactionManagement
-public class PersistConfig {
+public class JpaConfig {
 
 }

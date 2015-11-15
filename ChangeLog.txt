@@ -16,5 +16,10 @@ pagination like jd
 add mysql for prod profile
 complex query by Querydsl
 
+- 0.0.2-SNAPSHOT
+redis cache support
+redis pub/sub support
+
+mongodb support
 rest api design
 product and order
